@@ -1,0 +1,24 @@
+<html>
+<body><?php
+$position=$_REQUEST['data_9'];
+ mysql_connect("localhost","root","") or die("Unable to connect to database");
+ mysql_select_db("jobportal") or die("Unable to select database");
+ $q="select * from resume where position='$position'";
+ $res=mysql_query($q) or die("Unable to Execute query");
+ $n=mysql_num_rows($res);
+ if($n>0)
+ {
+  echo "<table border='1' height='50%' width='50%' style='font-size:20pt'>";
+  echo "<tr><th>fastname</th><th>lastname</th><th>email</th><th>phone</th><th>website</th><th>salary</th><th>comments</th></tr>";
+  for($r=1;$r<=$n;$r++)
+  {
+	  $row=mysql_fetch_array($res);
+  echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td><td>$row[4]</td><td>$row[5]</td><td>".$row[6]."</td></tr>";
+  }
+  echo "</table>";
+ }
+ else
+ echo "No records are found in the table";
+?>
+</html>
+</body>

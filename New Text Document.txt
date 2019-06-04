@@ -1,0 +1,11 @@
+<html>
+<body>
+<div id="login">
+<form name='form-login' action="action.php" method="POST">
+<h1>login<h1>
+<input type="text" id="user" placeholder="Username"> 
+<input type="password" id="pass" placeholder="Password" >
+<input type="submit" value="Login" name="login">
+</form>
+</body>
+</html>
